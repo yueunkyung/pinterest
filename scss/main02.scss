@@ -1,0 +1,59 @@
+@import "vars";
+@import "mixins";
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  .scene {
+    width: 1200px;
+    height: 600px;
+    perspective: 800px;
+    .carousel {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      .face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #111;
+        color: #fff;
+        font-size: 36px;
+        font-weight: 700;
+        //opacity: 0.5;
+        &:nth-child(10n+1) {background-color: rgb(228, 25, 25);}
+        &:nth-child(10n+2) {background-color: rgb(228, 89, 25);}
+        &:nth-child(10n+3) {background-color: rgb(228, 157, 25);}
+        &:nth-child(10n+4) {background-color: rgb(184, 228, 25);}
+        &:nth-child(10n+5) {background-color: rgb(72, 228, 25);}
+        &:nth-child(10n+6) {background-color: rgb(25, 228, 93);}
+        &:nth-child(10n+7) {background-color: rgb(25, 214, 228);}
+        &:nth-child(10n+8) {background-color: rgb(25, 147, 228);}
+        &:nth-child(10n+9) {background-color: rgb(25, 79, 228);}
+        &:nth-child(10n+10) {background-color: rgb(103, 25, 228);}
+      }
+    }
+  }
+  .pagination {
+    position: absolute;
+    bottom: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color:#fff;
+    button {
+      cursor: pointer;
+    }
+    .material-icons {
+      font-size: 48px;
+      color:#fff;
+    }
+  }
+}

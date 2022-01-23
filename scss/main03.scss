@@ -1,0 +1,106 @@
+@import "vars";
+@import "mixins";
+$cube-width:80px;
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  height: 100vh;
+  #cubeBox {
+    width:calc(81px * 20);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .scene {
+    width: $cube-width;
+    height: $cube-width;
+    margin: 0 1px 1px 0;
+    perspective: 200px;
+    
+    .cube {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transform:translateZ(-$cube-width/2);
+      //transform: rotateX(45deg) rotateY(45deg);
+      .face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 32px;
+        font-weight: 300;
+        overflow: hidden;
+        text-transform: uppercase;
+        &.right {
+          transform:rotateY(90deg) translateZ($cube-width / 2 ); 
+          background-color: rgb(207, 21, 21);        
+          @include longShadow(darken(rgb(207, 21, 21),10),right,100)
+        }
+        &.left {transform:rotateY(-90deg) translateZ($cube-width / 2); 
+          background-color: rgb(212, 120, 0);
+          @include longShadow(darken(rgb(212, 120, 0),10),right,100)
+        }
+        &.top {transform:rotateX(90deg) translateZ($cube-width / 2); 
+          background-color: rgb(1, 148, 185);
+          @include longShadow(darken(rgb(1, 148, 185),10),right,100)
+        }
+        &.bottom {transform:rotateX(-90deg) translateZ($cube-width / 2); 
+          background-color: rgb(111, 9, 226);
+          @include longShadow(darken(rgb(111, 9, 226),10),right,100)
+        }
+        &.front {transform:rotateY(0) translateZ($cube-width / 2); 
+          background-color: rgb(21, 196, 15);
+          @include longShadow(darken(rgb(21, 196, 15),10),right,100)
+        }
+        &.back {transform:rotateY(180deg) translateZ($cube-width / 2); 
+          background-color: rgb(4, 50, 201);
+          @include longShadow(darken(rgb(4, 50, 201),10),right,100)
+        }
+      }
+    }
+  }
+  .pagination {
+    position: absolute;
+    bottom: 50px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    ul {
+      display: flex;
+      justify-content: center;
+      transition: 0.5s ease;
+      &.off {
+        pointer-events: none;
+        opacity: 0.5;
+      }
+    }
+    .pause {
+      display: none;
+    }
+    li, button {
+      width:30px;
+      height: 30px;
+      border: 2px solid #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      margin: 0 2px;
+      cursor: pointer;
+      transition: 0.25s ease;
+      box-sizing: border-box;
+      &.on {
+        background-color: #000;
+        color:#fff;
+      }
+    }
+  }
+}

@@ -1,0 +1,276 @@
+@import "vars";
+@import "mixins";
+
+#subContentsWrap {
+  #subVisual {
+    height: 350px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    position: relative;
+    z-index: 3;
+    .subTitle {
+      @include absCenter();
+      color: #fff;
+      text-align: center;
+      padding-top: 50px;
+      h2 {
+        font-size: $xx-large-size;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: $medium-size;
+      }
+    }
+    #lnb {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      height: 50px;
+      width: 100%;
+      .contents {
+        width: 1200px;
+        margin: auto;
+        display: flex;
+        .home {
+          a {
+            @include flexCenter();
+            width: 50px;
+            height: 50px;
+            color: #fff;
+          }
+        }
+        .item {
+          &:hover {
+            ul {
+              //display: block;
+            }
+          }
+          button {
+            width: 250px;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            color: $white-color;
+          }
+          ul {
+            border: 1px solid $text-color;
+            background-color: #fff;
+            display: none;
+            border-top: none;
+            border-bottom: none;
+            li {
+              border-bottom: 1px solid $text-color;
+              a {
+                display: flex;
+                height: 50px;
+                align-items: center;
+                padding-left: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .subVisual01 {
+    background-image: url("../images/contents/subVisual01.jpg");
+  }
+  .subVisual02 {
+    background-image: url("../images/contents/subVisual02.jpg");
+  }
+  .subVisual03 {
+    background-image: url("../images/contents/subVisual03.jpg");
+  }
+  .subVisual04 {
+    background-image: url("../images/contents/subVisual04.jpg");
+  }
+  .subVisual05 {
+    background-image: url("../images/contents/subVisual05.jpg");
+  }
+
+  #subContents {
+    padding: 100px 0;
+    .subTitle {
+      font-size: $h2;
+      text-align: center;
+      font-weight: 500; //100,300,400,500,700,900
+      &:after {
+        @include pseudo(block, relative);
+        @include box(40px, 4px);
+        background-color: $main-color;
+        margin: 50px auto;
+      }
+    }
+    .contents {
+      width: 1200px;
+      margin: auto;
+    }
+  }
+}
+
+.tabBox {
+  .tabMenu {
+    ul {
+      display: flex;
+      justify-content: center;
+      li {
+        width: 200px;
+        height: 60px;
+        border: 1px solid $border-color;
+        @include flexCenter();
+        overflow: hidden;
+        border-left: none;
+        cursor: pointer;
+        &:nth-child(1) {
+          border-left: 1px solid $border-color;
+        }
+        &.on {
+          background-color: $main-color;
+          border-color: $main-color;
+          color: $white-color;
+          @include longShadow(darken($main-color, 10), right, 40);
+        }
+      }
+    }
+  }
+  .tabContents {
+    > ul {
+      > li {
+        display: none;
+        &:first-child {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.history {
+  .historyList {
+    display: flex;
+    //justify-content: center;
+    //align-items: flex-end;
+
+    flex-direction: column;
+    margin: 100px 0;
+    position: relative;
+    &:before {
+      content: "";
+      display: block;
+      width: 1px;
+      top: 0;
+      bottom: 0;
+      position: absolute;
+      background-color: $border-color;
+      left: 50%;
+      margin-left: -1px;
+    }
+    > li {
+      width: 50%;
+      box-sizing: border-box;
+      position: relative;
+      &:before {
+        content: "";
+        display: block;
+        width: 24px;
+        height: 24px;
+        border: 5px solid $main-color;
+        background-color: $white-color;
+        position: absolute;
+        top: 10px;
+
+        border-radius: 100px;
+        box-sizing: border-box;
+      }
+      .year {
+        font-size: $x-large-size;
+        font-weight: 700;
+        margin-bottom: 50px;
+      }
+      ul {
+        li {
+          display: flex;
+          margin: 15px 0;
+          strong {
+            font-weight: 700;
+          }
+        }
+      }
+      &:nth-child(2n) {
+        padding-right: 50px;
+        &:before {
+          right: 0;
+          transform: translateX(50%);
+        }
+        .year {
+          display: flex;
+          justify-content: flex-end;
+        }
+        ul {
+          li {
+            flex-direction: row-reverse;
+            display: flex;
+            //justify-content: flex-end;
+            strong {
+              margin-left: 20px;
+            }
+          }
+        }
+      }
+      &:nth-child(2n + 1) {
+        //align-content: flex-end;
+        &:before {
+          left: 0;
+          transform: translateX(-50%);
+        }
+        padding-left: 50px;
+        margin-left: auto;
+        ul {
+          li {
+            strong {
+              margin-right: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// history end
+
+#map {
+  height: 600px;
+  margin-top: 100px;
+}
+.customOverlay {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  a {
+    display: block;
+    padding: 10px 20px;
+    background-color: $main-color;
+    overflow: hidden;
+    @include longShadow(darken($main-color, 10), right, 30);
+    border-radius: 5px;
+    color: $white-color;
+  }
+  &:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: darken($main-color, 10);
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+    transform: translateX(-50%);
+  }
+}

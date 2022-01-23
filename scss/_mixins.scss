@@ -1,0 +1,78 @@
+@mixin multiEllipsis($line-height: 1.5, $line: 2) {
+  line-height: $line-height;
+  height: $line-height * $line * 1em; // 높이를 얼마로 지정할건지...
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $line; //몇줄 들어갈건지...
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@mixin pseudo($display: block, $position: absolute) {
+  content: "";
+  display: $display;
+  position: $position;
+}
+@mixin box($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin longShadow($bg-color: #000, $direction: right, $num: 100) {
+  //text-shadow:1px 1px 0px rgba(),
+  //2px 2px 0px rgba(),
+  //2px 2px 0px rgba();
+
+  $shadow: "";
+  @if ($direction == right) {
+    @for $i from 1 to $num {
+      $shadow: $shadow + $i + "px " + $i + "px 0px " + $bg-color + ",";
+    }
+    $shadow: $shadow + $num + "px " + $num + "px 0px " + $bg-color + ";";
+  } @else {
+    @for $i from 1 to $num {
+      $shadow: $shadow + $i * -1 + "px " + $i + "px 0px " + $bg-color + ",";
+    }
+    $shadow: $shadow + $num * -1 + "px " + $num + "px 0px " + $bg-color + ";";
+  }
+  $shadow: unquote($shadow);
+  text-shadow: $shadow;
+}
+@mixin longShadowTrans($bg-color: #000, $direction: right, $num: 100) {
+  $shadow: "";
+  @if ($direction == right) {
+    @for $i from 1 to $num {
+      $shadow: $shadow + $i + "px " + $i + "px 0px " + rgba($bg-color, ($num - $i * 1.2) / $num) + ",";
+    }
+    $shadow: $shadow + $num + "px " + $num + "px 0px " + rgba($bg-color, 0) + ";";
+  } @else {
+    @for $i from 1 to $num {
+      $shadow: $shadow + $i * -1 + "px " + $i + "px 0px " + rgba($bg-color, ($num - $i * 1.2) / $num) + ",";
+    }
+    $shadow: $shadow + $num * -1 + "px " + $num + "px 0px " + rgba($bg-color, 0) + ";";
+  }
+  $shadow: unquote($shadow);
+  text-shadow: $shadow;
+}
+
+// @mixin transition($time: 0.25s) {
+//   transition: $time ease;
+// }
+@mixin flexCenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin absCenter() {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+//f(x,y)
