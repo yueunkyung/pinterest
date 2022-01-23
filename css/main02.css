@@ -1,0 +1,33 @@
+#main { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 100%; height: 100vh; overflow: hidden; }
+
+#main .scene { width: 1200px; height: 600px; -webkit-perspective: 800px; perspective: 800px; }
+
+#main .scene .carousel { width: 100%; height: 100%; position: relative; -webkit-transform-style: preserve-3d; transform-style: preserve-3d; }
+
+#main .scene .carousel .face { position: absolute; width: 100%; height: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; background-color: #111; color: #fff; font-size: 36px; font-weight: 700; }
+
+#main .scene .carousel .face:nth-child(10n+1) { background-color: #e41919; }
+
+#main .scene .carousel .face:nth-child(10n+2) { background-color: #e45919; }
+
+#main .scene .carousel .face:nth-child(10n+3) { background-color: #e49d19; }
+
+#main .scene .carousel .face:nth-child(10n+4) { background-color: #b8e419; }
+
+#main .scene .carousel .face:nth-child(10n+5) { background-color: #48e419; }
+
+#main .scene .carousel .face:nth-child(10n+6) { background-color: #19e45d; }
+
+#main .scene .carousel .face:nth-child(10n+7) { background-color: #19d6e4; }
+
+#main .scene .carousel .face:nth-child(10n+8) { background-color: #1993e4; }
+
+#main .scene .carousel .face:nth-child(10n+9) { background-color: #194fe4; }
+
+#main .scene .carousel .face:nth-child(10n+10) { background-color: #6719e4; }
+
+#main .pagination { position: absolute; bottom: 100px; width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; color: #fff; }
+
+#main .pagination button { cursor: pointer; }
+
+#main .pagination .material-icons { font-size: 48px; color: #fff; }

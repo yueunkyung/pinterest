@@ -1,20 +1,34 @@
 @import "vars";
 @import "mixins";
+*{
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select: none;  
+}
 body {
   height: 3000px;
+  cursor: none;
 }
+#main, #main *, #main *:hover {
+  cursor: none;
+}
+// a:hover, button:hover {
+//   cursor: none;
+// }
 .txtBox {
   position: fixed;
   left: 100px;
   top: 100px;
   display: none;
 }
-
 #filter {
   margin-top: 150px;
+  display: flex;
+  justify-content: center;
   ul {
-    display: flex;
-    justify-content: center;
+    display: inline-flex;
+    //justify-content: center;
     li {
       display: flex;
       justify-content: center;
@@ -27,6 +41,8 @@ body {
       border-radius: 100px;
       margin: 0 10px;
       overflow: hidden;
+      // cursor: pointer;
+      user-select: none; //드래그 방지
       &.on {
         background-color: #c92a2a;
         @include longShadow(darken(#c92a2a, 10), right, 50);
